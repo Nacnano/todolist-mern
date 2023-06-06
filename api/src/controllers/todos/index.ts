@@ -1,10 +1,10 @@
 import { Response, Request } from "express";
 import { ITodo } from "./../../types/todo";
-import Todo from "../../models/todo";
+import TodosModel from "../../models/Todos";
 
 const getTodos = async (req: Request, res: Response): Promise<void> => {
   try {
-    const todos: ITodo[] = await Todo.find();
+    const todos: ITodo[] = await TodosModel.find();
     res.status(200).json({ todos });
   } catch (error) {
     throw error;
@@ -15,14 +15,14 @@ const addTodo = async (req: Request, res: Response): Promise<void> => {
   try {
     const body = req.body as Pick<ITodo, "name" | "description" | "status">;
 
-    const todo: ITodo = new Todo({
+    const todo: ITodo = new TodosModel({
       name: body.name,
       description: body.description,
       status: body.status,
     });
 
     const newTodo: ITodo = await todo.save();
-    const allTodos: ITodo[] = await Todo.find();
+    const allTodos: ITodo[] = await TodosModel.find();
 
     res
       .status(201)
@@ -38,11 +38,11 @@ const updateTodo = async (req: Request, res: Response): Promise<void> => {
       params: { id },
       body,
     } = req;
-    const updateTodo: ITodo | null = await Todo.findByIdAndUpdate(
+    const updateTodo: ITodo | null = await TodosModel.findByIdAndUpdate(
       { _id: id },
       body
     );
-    const allTodos: ITodo[] = await Todo.find();
+    const allTodos: ITodo[] = await TodosModel.find();
     res.status(200).json({
       message: "Todo updated",
       todo: updateTodo,
@@ -55,10 +55,10 @@ const updateTodo = async (req: Request, res: Response): Promise<void> => {
 
 const deleteTodo = async (req: Request, res: Response): Promise<void> => {
   try {
-    const deletedTodo: ITodo | null = await Todo.findByIdAndRemove(
+    const deletedTodo: ITodo | null = await TodosModel.findByIdAndRemove(
       req.params.id
     );
-    const allTodos: ITodo[] = await Todo.find();
+    const allTodos: ITodo[] = await TodosModel.find();
     res.status(200).json({
       message: "Todo deleted",
       todo: deletedTodo,
