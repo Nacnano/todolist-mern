@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { addTodo, deleteTodo, getTodos, updateTodo } from "./utils/todoActions";
 import AddTodo from "./components/AddTodo";
-import { ApiDataType, ITodo } from "./types/types";
+import { ITodo } from "./types/types";
 import React from "react";
 import Todo from "./components/Todo";
 
@@ -10,12 +10,12 @@ const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   useEffect(() => {
-    fetchTodo();
+    fetchTodos();
   }, []);
 
-  const fetchTodo = (): void => {
+  const fetchTodos = (): void => {
     getTodos()
-      .then(({ data: todos }: ITodo[] | any) => setTodos(todos))
+      .then(({ data: { todos } }: ITodo[] | any) => setTodos(todos))
       .catch((error: Error) => {
         throw error;
       });
