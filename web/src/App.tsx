@@ -1,35 +1,43 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { useEffect, useState } from "react";
+import TodosList from "./components/TodosList";
+import { addTodo, deleteTodo, getTodos, updateTodo } from "./utils/todoActions";
+import AddTodo from "./components/AddTodo";
 
-function App() {
-  const [count, setCount] = useState(0);
+const App: React.FC = () => {
+  const [todos, setTodos] = useState<ITodo[]>([]);
+
+  useEffect(() => {
+    fetchTodo();
+  }, []);
+
+  const fetchTodo = (): void => {
+    getTodos()
+      .then(({ data: todos }: ITodo[] | any) => setTodos(todos))
+      .catch((error: Error) => {
+        throw error;
+      });
+  };
+
+  const handleSaveTodo = (e: React.FormEvent, formData: ITodo): void => {
+    e.preventDefault();
+    addTodo(formData)
+      .then(({ status, data }) => {
+        if (status !== 201) {
+          throw new Error("Error occured while saving the Todo");
+        }
+        setTodos(data.todos);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main className="app">
+      <h1> Todos</h1>
+      <AddTodo saveTodo={handleSaveTodo} />
+      <TodosList todos={todos} />
+    </main>
   );
-}
+};
 
 export default App;
