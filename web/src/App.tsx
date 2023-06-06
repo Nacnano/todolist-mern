@@ -26,7 +26,7 @@ const App: React.FC = () => {
     addTodo(formData)
       .then(({ status, data }) => {
         if (status !== 201) {
-          throw new Error("Error occured while saving the Todo");
+          throw new Error("Error occurred while saving the Todo");
         }
         setTodos(data.todos);
       })

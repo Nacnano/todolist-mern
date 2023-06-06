@@ -11,7 +11,7 @@ export const getTodos = async (): Promise<AxiosResponse<ApiDataType>> => {
     );
     return todos;
   } catch (error) {
-    throw new Error("Error occured while fetching todos");
+    throw new Error("Error occurred while fetching todos");
   }
 };
 
@@ -30,7 +30,7 @@ export const addTodo = async (
     );
     return saveTodo;
   } catch (error) {
-    throw new Error("Error occured while saving the Todo");
+    throw new Error("Error occurred while saving the Todo");
   }
 };
 
@@ -47,7 +47,7 @@ export const updateTodo = async (
     );
     return updatedTodo;
   } catch (error) {
-    throw new Error("Error occured while updating the Todo");
+    throw new Error("Error occurred while updating the Todo");
   }
 };
 
@@ -60,6 +60,6 @@ export const deleteTodo = async (
     );
     return deletedTodo;
   } catch (error) {
-    throw new Error("error occured while deleting the Todo");
+    throw new Error("error occurred while deleting the Todo");
   }
 };

@@ -13,7 +13,7 @@ app.use(express.json())
 app.use('/todos', todos)
 
 app.use((err, _req, res, next) => {
-  res.status(500).send('Uh oh! An unexpected error occured.')
+  res.status(500).send('Uh oh! An unexpected error occurred.')
 })
 
 app.listen(PORT, () => {
