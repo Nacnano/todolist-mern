@@ -1,8 +1,9 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import TodosList from "./components/TodosList";
-import { addTodo, deleteTodo, getTodos, updateTodo } from "./utils/todoActions";
+import { addTodo, getTodos } from "./utils/todoActions";
 import AddTodo from "./components/AddTodo";
+import { ITodo } from "./types/types";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
@@ -35,7 +36,7 @@ const App: React.FC = () => {
     <main className="app">
       <h1> Todos</h1>
       <AddTodo saveTodo={handleSaveTodo} />
-      <TodosList todos={todos} />
+      <TodosList todos={todos} setTodos={setTodos} />
     </main>
   );
 };

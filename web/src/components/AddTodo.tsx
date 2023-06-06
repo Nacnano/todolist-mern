@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addTodo } from "../utils/todoActions";
+import { ITodo } from "../types/types";
 
 type Props = {
   saveTodo: (e: React.FormEvent, formData: ITodo | any) => void;

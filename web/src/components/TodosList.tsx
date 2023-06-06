@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { deleteTodo, updateTodo } from "../utils/todoActions";
 import Todo from "./Todo";
+import { ITodo, TodosListProps } from "../types/types";
 
-type TodosListProps = {ITodo[]};
+type Props = {
+  todos: ITodo[];
+  setTodos: React.Dispatch<React.SetStateAction<ITodo[]>>;
+};
 
+const TodosList: React.FC<Props> = ({ todos, setTodos }) => {
   const handleUpdateTodo = (todo: ITodo): void => {
     updateTodo(todo)
       .then(({ status, data }) => {
@@ -26,13 +31,14 @@ type TodosListProps = {ITodo[]};
       .catch((err) => console.log(err));
   };
 
-const TodosList: React.FC<TodosListProps> = ({ todos }) => {
-    return (todos.map((todo: ITodo) => {
-        <Todo  key={todo._id}
-        updateTodo={handleUpdateTodo}
-        deleteTodo={handleDeleteTodo}
-        todo={todo}/>
-    }));
+  return todos.map((todo: ITodo) => {
+    <Todo
+      key={todo._id}
+      updateTodo={handleUpdateTodo}
+      deleteTodo={handleDeleteTodo}
+      todo={todo}
+    />;
+  });
 };
 
 export default TodosList;
