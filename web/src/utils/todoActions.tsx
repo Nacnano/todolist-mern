@@ -6,10 +6,8 @@ const apiUrl = "http://localhost:3000";
 
 export const getTodos = async (): Promise<AxiosResponse<ApiDataType>> => {
   try {
-    const todos: AxiosResponse<ApiDataType> = await axios.get(
-      apiUrl + "/todos"
-    );
-    return todos;
+    const data: AxiosResponse<ApiDataType> = await axios.get(apiUrl + "/todos");
+    return data;
   } catch (error) {
     throw new Error("Error occurred while fetching todos");
   }
