@@ -1,6 +1,9 @@
 {
-  "extends": ["development"],
+  "extends": [
+    "development"
+  ],
   "hints": {
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "typescript-config/consistent-casing": "off"
   }
 }
