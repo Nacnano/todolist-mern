@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { deleteTodo, updateTodo } from "../utils/todoActions";
 import Todo from "./Todo";
-import { ITodo, TodosListProps } from "../types/types";
+import { ITodo } from "../types/types";
 
 type Props = {
   todos: ITodo[];
@@ -13,7 +13,7 @@ const TodosList: React.FC<Props> = ({ todos, setTodos }) => {
     updateTodo(todo)
       .then(({ status, data }) => {
         if (status !== 200) {
-          throw new Error("Error occured while updating the Todo");
+          throw new Error("Error occurred while updating the Todo");
         }
         setTodos(data.todos);
       })
@@ -31,14 +31,18 @@ const TodosList: React.FC<Props> = ({ todos, setTodos }) => {
       .catch((err) => console.log(err));
   };
 
-  return todos.map((todo: ITodo) => {
-    <Todo
-      key={todo._id}
-      updateTodo={handleUpdateTodo}
-      deleteTodo={handleDeleteTodo}
-      todo={todo}
-    />;
-  });
+  return (
+    <>
+      {todos.map((todo: ITodo) => (
+        <Todo
+          key={todo._id}
+          updateTodo={handleUpdateTodo}
+          deleteTodo={handleDeleteTodo}
+          todo={todo}
+        />
+      ))}
+    </>
+  );
 };
 
 export default TodosList;

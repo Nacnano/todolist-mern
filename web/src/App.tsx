@@ -4,6 +4,7 @@ import TodosList from "./components/TodosList";
 import { addTodo, getTodos } from "./utils/todoActions";
 import AddTodo from "./components/AddTodo";
 import { ITodo } from "./types/types";
+import React from "react";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
