@@ -1,10 +1,9 @@
 import axios, { AxiosResponse } from "axios";
 import { ApiDataType, ITodo } from "../types/types";
-import dotenv from "dotenv";
-dotenv.config();
 
-const apiUrl: string = process.env.API_URL || "http://localhost:3000";
-console.log("Backend URL", apiUrl);
+// const apiUrl: string = process.env.API_URL || "http://localhost:3000";
+const apiUrl = "http://localhost:3000";
+
 export const getTodos = async (): Promise<AxiosResponse<ApiDataType>> => {
   try {
     const data: AxiosResponse<ApiDataType> = await axios.get(apiUrl + "/todos");
