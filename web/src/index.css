@@ -1,69 +1,99 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Dancing Script", sans-serif;
+  color: #ffffff;
+  background: #443159;
+}
+
+.App {
+  width: 50vw;
+  margin: 4rem auto;
+}
+
+.App > h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.Card {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center;
+  background: #41354f;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #333333;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.Card--text h1 {
+  color: #834bc4;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.Card--text span {
+  color: #c1b6cf;
+}
+.Card--button button {
+  background: #443159;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.Card--button__delete {
+  border: 1px solid #ca0000;
+  color: #ca0000;
+}
+
+.Card--button__done {
+  border: 1px solid #00aa69;
+  color: #00aa69;
+  margin-right: 1rem;
+}
+
+.Form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #41354f;
+  margin-bottom: 1rem;
+}
+
+.Form > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Form input {
+  background: #443159;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  display: block;
+  margin: 0.3rem 1rem 0 0;
+  color: #ffffff;
+}
+
+.Form button {
+  background: #443159;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
+  color: #777 !important;
+}
+
+.hide-button {
+  display: none;
 }
