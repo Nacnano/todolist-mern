@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useState } from "react";
 import { addTodo, deleteTodo, getTodos, updateTodo } from "./utils/todoActions";
 import AddTodo from "./components/AddTodo";
@@ -8,6 +7,7 @@ import Todo from "./components/Todo";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
     fetchTodos();
@@ -55,9 +55,14 @@ const App: React.FC = () => {
       .catch((err) => console.log(err));
   };
 
+  const toggleTheme = (): void => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <main className="app">
+    <main className={`app ${theme}`}>
       <h1> Todos </h1>
+      <button onClick={toggleTheme}>Toggle Theme</button>{" "}
       <AddTodo saveTodo={handleSaveTodo} />
       {todos.map((todo: ITodo) => (
         <Todo
