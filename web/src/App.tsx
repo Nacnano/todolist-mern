@@ -71,7 +71,9 @@ const App: React.FC = () => {
   return (
     <main className={`app ${theme}`}>
       <h1> Todos </h1>
-      <button onClick={toggleTheme}>Toggle Theme</button>{" "}
+      <button className="toggle-theme-button" onClick={toggleTheme}>
+        Toggle Theme
+      </button>{" "}
       <AddTodo saveTodo={handleSaveTodo} />
       {todos.map((todo: ITodo) => (
         <Todo

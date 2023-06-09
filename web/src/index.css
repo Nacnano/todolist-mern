@@ -6,6 +6,7 @@
   --card-background: #444;
   --card-border: #333333;
   --button-background: #f5f6f7;
+  --button-text-color: #333;
   --button-border-delete: #ca0000;
   --button-color-delete: #ca0000;
   --button-border-done: #00aa69;
@@ -18,6 +19,7 @@
   --card-background: #fff;
   --card-border: #ccc;
   --button-background: #f5f6f7;
+  --button-text-color: #333;
   --button-border-delete: #ca0000;
   --button-color-delete: #ca0000;
   --button-border-done: #00aa69;
@@ -124,4 +126,34 @@ body {
 
 .hide-button {
   display: none;
+}
+
+.toggle-theme-button {
+  background: var(--button-background);
+  color: var(--button-text-color);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.toggle-theme-button:hover {
+  filter: drop-shadow(0 0 2em var(--button-hover-background));
+}
+
+.toggle-theme-button.react {
+  filter: drop-shadow(0 0 2em var(--button-toggle-background));
+  animation: logo-spin infinite 20s linear;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
