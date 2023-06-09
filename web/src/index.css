@@ -1,16 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 
+.dark {
+  --background-color: #333;
+  --text-color: #fff;
+  --card-background: #444;
+  --card-border: #333333;
+  --button-background: #f5f6f7;
+  --button-border-delete: #ca0000;
+  --button-color-delete: #ca0000;
+  --button-border-done: #00aa69;
+  --button-color-done: #00aa69;
+}
+
+.light {
+  --background-color: #f5f6f7;
+  --text-color: #333;
+  --card-background: #fff;
+  --card-border: #ccc;
+  --button-background: #f5f6f7;
+  --button-border-delete: #ca0000;
+  --button-color-delete: #ca0000;
+  --button-border-done: #00aa69;
+  --button-color-done: #00aa69;
+}
+
+:root {
+  background: var(--background-color);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #fff;
-  background: #333;
 }
 
 .App {
@@ -27,9 +54,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #444;
+  background: var(--card-background);
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .Card--text h1 {
@@ -37,20 +64,20 @@ body {
 }
 
 .Card--button button {
-  background: #f5f6f7;
+  background: var(--button-background);
   padding: 0.4rem 1rem;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .Card--button__delete {
-  border: 1px solid #ca0000;
-  color: #ca0000;
+  border: 1px solid var(--button-border-delete);
+  color: var(--button-color-delete);
 }
 
 .Card--button__done {
-  border: 1px solid #00aa69;
-  color: #00aa69;
+  border: 1px solid var(--button-border-done);
+  color: var(--button-color-done);
   margin-right: 1rem;
 }
 
@@ -59,7 +86,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: #444;
+  background: var(--card-background);
   margin-bottom: 1rem;
 }
 
@@ -70,7 +97,7 @@ body {
 }
 
 .Form input {
-  background: #f5f6f7;
+  background: var(--button-background);
   padding: 0.5rem 1rem;
   border: 1px solid #ff9900;
   border-radius: 10px;

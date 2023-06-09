@@ -1,3 +1,4 @@
+import "./App.css";
 import { useEffect, useState } from "react";
 import { addTodo, deleteTodo, getTodos, updateTodo } from "./utils/todoActions";
 import AddTodo from "./components/AddTodo";
