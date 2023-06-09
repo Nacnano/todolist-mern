@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -6,13 +6,15 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Dancing Script", sans-serif;
-  color: #ffffff;
-  background: #443159;
+  font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  background: #333;
 }
 
 .App {
-  width: 50vw;
+  max-width: 728px;
   margin: 4rem auto;
 }
 
@@ -25,20 +27,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #41354f;
+  background: #444;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #333333;
 }
 
 .Card--text h1 {
-  color: #834bc4;
+  color: #ff9900;
 }
 
-.Card--text span {
-  color: #c1b6cf;
-}
 .Card--button button {
-  background: #443159;
+  background: #f5f6f7;
   padding: 0.4rem 1rem;
   border-radius: 20px;
   cursor: pointer;
@@ -60,7 +59,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: #41354f;
+  background: #444;
   margin-bottom: 1rem;
 }
 
@@ -71,22 +70,24 @@ body {
 }
 
 .Form input {
-  background: #443159;
+  background: #f5f6f7;
   padding: 0.5rem 1rem;
-  border: 1px solid #ffffff;
+  border: 1px solid #ff9900;
   border-radius: 10px;
   display: block;
   margin: 0.3rem 1rem 0 0;
-  color: #ffffff;
+}
+
+.Form label {
 }
 
 .Form button {
-  background: #443159;
-  color: #ffffff;
+  background: #ff9900;
+  color: #fff;
   padding: 0.5rem 1rem;
-  border: 1px solid #ffffff;
   border-radius: 20px;
   cursor: pointer;
+  border: none;
 }
 
 .line-through {
