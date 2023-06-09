@@ -11,6 +11,8 @@ const initialFormState: ITodo = {
   name: "",
   description: "",
   status: true,
+  deadline: new Date(),
+  user: "guest",
 };
 
 const AddTodo: React.FC<Props> = ({ saveTodo }) => {
@@ -19,6 +21,8 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
   const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
     setFormData({
       ...formData,
+      // TODO: add user
+      // user: <username>
       [e.currentTarget.id]: e.currentTarget.value,
     });
   };
@@ -48,6 +52,15 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
             type="text"
             id="description"
             value={formData.description}
+          />
+        </div>
+        <div>
+          <label htmlFor="deadline">Deadline</label>
+          <input
+            onChange={handleForm}
+            type="date"
+            id="deadline"
+            value={formData.deadline.toString()}
           />
         </div>
       </div>
