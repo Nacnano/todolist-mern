@@ -21,6 +21,7 @@ export const addTodo = async (
       name: formData.name,
       description: formData.description,
       status: false,
+      deadline: formData.deadline,
     };
     const saveTodo: AxiosResponse<ApiDataType> = await axios.post(
       apiUrl + "/add-todo",

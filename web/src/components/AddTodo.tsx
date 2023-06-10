@@ -17,7 +17,6 @@ const initialFormState: ITodo = {
 
 const AddTodo: React.FC<Props> = ({ saveTodo }) => {
   const [formData, setFormData] = useState<ITodo>(initialFormState);
-
   const handleForm = (e: React.FormEvent<HTMLInputElement>): void => {
     setFormData({
       ...formData,
@@ -56,12 +55,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
         </div>
         <div>
           <label htmlFor="deadline">Deadline</label>
-          <input
-            onChange={handleForm}
-            type="date"
-            id="deadline"
-            value={formData.deadline.toString()}
-          />
+          <input onChange={handleForm} type="date" id="deadline" />
         </div>
       </div>
       <button disabled={formData === undefined ? true : false}>Add Todo</button>

@@ -3,8 +3,8 @@ export interface ITodo {
   name: string;
   description: string;
   status: boolean;
-  deadline: Date;
-  user: string;
+  deadline?: Date;
+  user?: string;
   createdAt?: string;
   updatedAt?: string;
 }
