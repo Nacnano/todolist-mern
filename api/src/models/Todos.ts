@@ -21,8 +21,8 @@ const todoSchema: Schema = new Schema(
     },
     user: {
       type: Schema.Types.ObjectId,
-      ref: "users",
-      required: true,
+      ref: "Users",
+      required: false,
     },
   },
   { timestamps: true }

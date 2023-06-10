@@ -1,10 +1,11 @@
 import { Response, Request } from "express";
 import { ITodo } from "./../../types/todo";
 import TodosModel from "../../models/Todos";
+import UsersModel from "../../models/Users";
 
 const getTodos = async (req: Request, res: Response): Promise<void> => {
   try {
-    const todos: ITodo[] = await TodosModel.find();
+    const todos: ITodo[] = await TodosModel.find().populate("user");
     res.status(200).json({ todos });
   } catch (error) {
     throw error;
@@ -13,16 +14,21 @@ const getTodos = async (req: Request, res: Response): Promise<void> => {
 
 const addTodo = async (req: Request, res: Response): Promise<void> => {
   try {
-    const body = req.body as Pick<ITodo, "name" | "description" | "status">;
-
+    const { name, description, status, deadline, userId } = req.body;
+    const user = userId ? userId : "6484abc450c867a4d5607171";
     const todo: ITodo = new TodosModel({
-      name: body.name,
-      description: body.description,
-      status: body.status,
+      name,
+      description,
+      status,
+      deadline,
+      user,
     });
 
     const newTodo: ITodo = await todo.save();
-    const allTodos: ITodo[] = await TodosModel.find();
+    await UsersModel.findByIdAndUpdate(user, {
+      $push: { todos: newTodo._id },
+    });
+    const allTodos: ITodo[] = await TodosModel.find().populate("user");
 
     res
       .status(201)
@@ -42,7 +48,7 @@ const updateTodo = async (req: Request, res: Response): Promise<void> => {
       { _id: id },
       body
     );
-    const allTodos: ITodo[] = await TodosModel.find();
+    const allTodos: ITodo[] = await TodosModel.find().populate("user");
     res.status(200).json({
       message: "Todo updated",
       todo: updateTodo,
@@ -58,7 +64,7 @@ const deleteTodo = async (req: Request, res: Response): Promise<void> => {
     const deletedTodo: ITodo | null = await TodosModel.findByIdAndRemove(
       req.params.id
     );
-    const allTodos: ITodo[] = await TodosModel.find();
+    const allTodos: ITodo[] = await TodosModel.find().populate("user");
     res.status(200).json({
       message: "Todo deleted",
       todo: deletedTodo,

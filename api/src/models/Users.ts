@@ -1,11 +1,12 @@
-import { Schema, model } from "mongoose";
 import { IUser } from "../types/users";
+import { Schema, model } from "mongoose";
 
 const UserSchema = new Schema(
   {
     username: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
@@ -13,7 +14,7 @@ const UserSchema = new Schema(
     },
     todos: {
       type: [Schema.Types.ObjectId],
-      ref: "todos",
+      ref: "Todos",
       default: [],
     },
   },
