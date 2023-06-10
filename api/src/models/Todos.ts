@@ -17,11 +17,11 @@ const todoSchema: Schema = new Schema(
     },
     deadline: {
       type: Date,
-      required: true,
+      required: false,
     },
     user: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "users",
       required: true,
     },
   },

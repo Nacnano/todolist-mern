@@ -13,7 +13,7 @@ const UserSchema = new Schema(
     },
     todos: {
       type: [Schema.Types.ObjectId],
-      ref: "Todo",
+      ref: "todos",
       default: [],
     },
   },
