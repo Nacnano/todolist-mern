@@ -1,9 +1,6 @@
 import { Schema, model } from "mongoose";
 import { IUser } from "../types/users";
 
-// Register the Todo model in mongoose
-require("./todo.model");
-
 const UserSchema = new Schema(
   {
     username: {
