@@ -43,6 +43,18 @@
   box-sizing: border-box;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header-title {
+  text-align: center;
+}
+
 body {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -65,7 +77,9 @@ body {
   align-items: center;
   background: var(--card-background);
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px 0.5remid var(--card-border);
+  border-radius: 10px;
 }
 
 .Card--text h1 {
@@ -74,6 +88,7 @@ body {
 
 .Card--button button {
   background: var(--button-background);
+  font-size: medium;
   padding: 0.4rem 1rem;
   border-radius: 20px;
   cursor: pointer;
@@ -103,7 +118,8 @@ body {
   padding: 1rem;
   background: var(--card-background);
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
 }
 
 .Form > div {
@@ -127,6 +143,7 @@ body {
 .Form button {
   background: #ff9900;
   color: #fff;
+  font-size: medium;
   padding: 0.5rem 1rem;
   border-radius: 20px;
   cursor: pointer;

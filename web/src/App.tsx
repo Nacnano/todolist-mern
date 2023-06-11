@@ -70,8 +70,8 @@ const App: React.FC = () => {
 
   return (
     <main className={`app ${theme}`}>
-      <header className="flex flex-col items-center mb-4">
-        <h1 className="text-center mb-2">Todos</h1>
+      <header className="header ">
+        <h1 className="header-title">Todos</h1>
         <button className="toggle-theme-button" onClick={toggleTheme}>
           Toggle Theme
         </button>
