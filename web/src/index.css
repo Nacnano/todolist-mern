@@ -94,6 +94,10 @@ body {
   cursor: pointer;
 }
 
+.Card--button button:hover {
+  background: gray;
+}
+
 .Card--button__delete {
   border: 1px solid var(--button-border-delete);
   color: var(--button-color-delete);
@@ -148,6 +152,11 @@ body {
   border-radius: 20px;
   cursor: pointer;
   border: none;
+}
+
+.Form button:hover {
+  background: #fff;
+  color: #ff9900;
 }
 
 .line-through {

@@ -36,7 +36,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
     <form className="Form" onSubmit={handleSubmit}>
       <div>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name (required)</label>
           <input
             onChange={handleForm}
             type="text"
