@@ -11,6 +11,8 @@
   --button-color-delete: #ca0000;
   --button-border-done: #00aa69;
   --button-color-done: #00aa69;
+  --button-border-doing: rgb(201, 131, 20);
+  --button-color-doing: rgb(201, 131, 20);
 }
 
 .light {
@@ -24,6 +26,8 @@
   --button-color-delete: #ca0000;
   --button-border-done: #00aa69;
   --button-color-done: #00aa69;
+  --button-border-doing: rgb(201, 131, 20);
+  --button-color-doing: rgb(201, 131, 20);
 }
 
 :root {
@@ -80,6 +84,12 @@ body {
 .Card--button__done {
   border: 1px solid var(--button-border-done);
   color: var(--button-color-done);
+  margin-right: 1rem;
+}
+
+.Card--button__doing {
+  border: 1px solid var(--button-border-doing);
+  color: var(--button-color-doing);
   margin-right: 1rem;
 }
 

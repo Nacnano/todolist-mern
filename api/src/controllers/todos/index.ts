@@ -5,7 +5,9 @@ import UsersModel from "../../models/Users";
 
 const getTodos = async (req: Request, res: Response): Promise<void> => {
   try {
-    const todos: ITodo[] = await TodosModel.find().populate("user");
+    const todos: ITodo[] = await TodosModel.find()
+      .populate("user")
+      .sort({ status: 1 });
     res.status(200).json({ todos });
   } catch (error) {
     throw error;

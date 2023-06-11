@@ -20,9 +20,9 @@ const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo }) => {
       <div className="Card--button">
         <button
           onClick={() => updateTodo(todo)}
-          className={todo.status ? `hide-button` : "Card--button__done"}
+          className={todo.status ? "Card--button__doing" : "Card--button__done"}
         >
-          Complete
+          {todo.status ? "Still Doing?" : "Complete?"}
         </button>
         <button
           onClick={() => deleteTodo(todo._id)}
