@@ -70,19 +70,23 @@ const App: React.FC = () => {
 
   return (
     <main className={`app ${theme}`}>
-      <h1> Todos </h1>
-      <button className="toggle-theme-button" onClick={toggleTheme}>
-        Toggle Theme
-      </button>{" "}
-      <AddTodo saveTodo={handleSaveTodo} />
-      {todos.map((todo: ITodo) => (
-        <Todo
-          key={todo._id}
-          updateTodo={handleUpdateTodo}
-          deleteTodo={handleDeleteTodo}
-          todo={todo}
-        />
-      ))}
+      <header className="flex flex-col items-center mb-4">
+        <h1 className="text-center mb-2">Todos</h1>
+        <button className="toggle-theme-button" onClick={toggleTheme}>
+          Toggle Theme
+        </button>
+      </header>
+      <body>
+        <AddTodo saveTodo={handleSaveTodo} />
+        {todos.map((todo: ITodo) => (
+          <Todo
+            key={todo._id}
+            updateTodo={handleUpdateTodo}
+            deleteTodo={handleDeleteTodo}
+            todo={todo}
+          />
+        ))}
+      </body>
     </main>
   );
 };

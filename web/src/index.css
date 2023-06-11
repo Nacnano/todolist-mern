@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 
+:root {
+  background: var(--background-color);
+  max-width: auto;
+  margin: 2rem;
+  padding: 2rem;
+}
+
 .dark {
   --background-color: #333;
   --text-color: #fff;
@@ -18,7 +25,7 @@
 .light {
   --background-color: #f5f6f7;
   --text-color: #333;
-  --card-background: #fff;
+  --card-background: #e0dfdf;
   --card-border: #ccc;
   --button-background: #f5f6f7;
   --button-text-color: #333;
@@ -28,10 +35,6 @@
   --button-color-done: #00aa69;
   --button-border-doing: rgb(201, 131, 20);
   --button-color-doing: rgb(201, 131, 20);
-}
-
-:root {
-  background: var(--background-color);
 }
 
 * {
@@ -99,6 +102,7 @@ body {
   align-items: center;
   padding: 1rem;
   background: var(--card-background);
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
