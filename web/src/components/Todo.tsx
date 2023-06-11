@@ -14,7 +14,14 @@ const Todo: React.FC<Props> = ({ todo, updateTodo, deleteTodo }) => {
         <h1 className={`text-xl font-bold ${checkTodo}`}>{todo.name}</h1>
         <p className={`mb-2 ${checkTodo}`}>{todo.description}</p>
         <p className={`text-sm ${checkTodo}`}>
-          Due: {todo.deadline ? todo.deadline.toString() : "None"}
+          Due:{" "}
+          {todo.deadline !== undefined
+            ? new Date(todo.deadline).toLocaleDateString("en-US", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })
+            : "None"}
         </p>
       </div>
       <div className="Card--button">
