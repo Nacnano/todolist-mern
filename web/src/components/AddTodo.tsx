@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ITodo } from "../types/types";
+import { ITodo } from "../types/todo";
 import React from "react";
 
 type Props = {

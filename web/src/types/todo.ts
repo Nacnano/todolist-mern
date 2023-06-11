@@ -16,9 +16,3 @@ export type TodoProps = {
 export type TodosListProps = {
   todos: ITodo[];
 };
-
-export type ApiDataType = {
-  message: string;
-  status: string;
-  todos: ITodo[];
-};

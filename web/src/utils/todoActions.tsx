@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { ApiDataType, ITodo } from "../types/types";
+import { ITodo } from "../types/todo";
+import { ApiDataType } from "../types/data";
 
 // const apiUrl: string = process.env.API_URL || "http://localhost:3000";
 const apiUrl = "http://localhost:3000";
