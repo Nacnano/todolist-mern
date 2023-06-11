@@ -11,7 +11,6 @@ const initialFormState: ITodo = {
   name: "",
   description: "",
   status: true,
-  deadline: new Date(),
   user: "guest",
 };
 

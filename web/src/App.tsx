@@ -8,7 +8,7 @@ import Todo from "./components/Todo";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
     fetchTodos();
