@@ -53,7 +53,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
           />
         </div>
         <div>
-          <label htmlFor="deadline">Deadline</label>
+          <label htmlFor="deadline">Due</label>
           <input onChange={handleForm} type="date" id="deadline" />
         </div>
       </div>

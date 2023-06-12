@@ -7,7 +7,7 @@ const getTodos = async (req: Request, res: Response): Promise<void> => {
   try {
     const todos: ITodo[] = await TodosModel.find()
       .populate("user")
-      .sort({ status: 1 });
+      .sort({ status: 1, deadline: 1 });
     res.status(200).json({ todos });
   } catch (error) {
     throw error;
@@ -30,7 +30,9 @@ const addTodo = async (req: Request, res: Response): Promise<void> => {
     await UsersModel.findByIdAndUpdate(user, {
       $push: { todos: newTodo._id },
     });
-    const allTodos: ITodo[] = await TodosModel.find().populate("user");
+    const allTodos: ITodo[] = await TodosModel.find()
+      .populate("user")
+      .sort({ status: 1, deadline: 1 });
 
     res
       .status(201)
@@ -50,7 +52,9 @@ const updateTodo = async (req: Request, res: Response): Promise<void> => {
       { _id: id },
       body
     );
-    const allTodos: ITodo[] = await TodosModel.find().populate("user");
+    const allTodos: ITodo[] = await TodosModel.find()
+      .populate("user")
+      .sort({ status: 1, deadline: 1 });
     res.status(200).json({
       message: "Todo updated",
       todo: updateTodo,
@@ -66,7 +70,9 @@ const deleteTodo = async (req: Request, res: Response): Promise<void> => {
     const deletedTodo: ITodo | null = await TodosModel.findByIdAndRemove(
       req.params.id
     );
-    const allTodos: ITodo[] = await TodosModel.find().populate("user");
+    const allTodos: ITodo[] = await TodosModel.find()
+      .populate("user")
+      .sort({ status: 1, deadline: 1 });
     res.status(200).json({
       message: "Todo deleted",
       todo: deletedTodo,
